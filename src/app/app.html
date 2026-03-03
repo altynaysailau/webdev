@@ -1,23 +1,14 @@
-<div class="container">
-  <h1>Магазин на Kaspi</h1>
+<div class="app-container">
+  <nav class="navbar">
+    <div class="nav-brand">Album Browser</div>
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">HOME</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">ABOUT</a></li>
+      <li><a routerLink="/albums" routerLinkActive="active">ALBUMS</a></li>
+    </ul>
+  </nav>
 
-  <div class="product-list">
-    @for (product of productList; track product.id) {
-      <div class="card">
-        <img [src]="product.image" [alt]="product.name">
-        <h2>{{ product.name }}</h2>
-        <p>{{ product.description }}</p>
-        <div class="info">
-          <span>Рейтинг: {{ product.rating }} ⭐</span>
-          <strong>Цена: {{ product.price }} ₸</strong>
-        </div>
-        <div class="buttons">
-          <a [href]="product.link" target="_blank" class="buy-btn">Купить</a>
-          <button (click)="share(product.link)" class="share-btn">TG Share</button>
-        </div>
-      </div>
-    }
-
-  </div>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
 </div>
-
