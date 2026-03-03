@@ -1,0 +1,30 @@
+<div class="grid">
+  @for (item of items; track item.id) {
+    <div class="card">
+      <a [href]="item.link" target="_blank">
+        <img [src]="item.image" [alt]="item.name" class="main-photo">
+      </a>
+
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.description }}</p>
+
+      <div class="meta">
+        <span class="price">{{ item.price }} ₸</span>
+        <span class="rating">⭐ {{ item.rating }}</span>
+      </div>
+
+      <div class="share">
+        <button (click)="shareWA(item.link)" class="wa">WhatsApp</button>
+        <button (click)="shareTG(item.link, item.name)" class="tg">Telegram</button>
+      </div>
+
+      <div class="images-gallery">
+        @for (photo of item.images; track photo) {
+          <img
+            [src]="photo"
+            class="small-tile"
+            (click)="item.image = photo">
+        }
+      </div>
+
+    </div> } </div>
